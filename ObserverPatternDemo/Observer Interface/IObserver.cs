@@ -10,7 +10,7 @@
         /// Handles an event.
         /// </summary>
         ///<param name="sender">The object that is to raised notifications.</param>
-        ///<param name="info">The current notification information.</param>
+        /// <param name="info">The current notification information.</param>
         void Update(object sender, T info);
     }
 }
