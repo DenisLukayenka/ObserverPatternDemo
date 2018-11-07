@@ -12,22 +12,29 @@ namespace ObserverPatternDemo.Implemantation.Observable
             _listObservers = new List<IObserver<WeatherInfo>>();
         }
 
-        public void Notify(IObservable<WeatherInfo> sender, WeatherInfo info)
+        void IObservable<WeatherInfo>.Notify(WeatherInfo info)
         {
-            if (ReferenceEquals(sender, null))
-            {
-                throw new ArgumentNullException(nameof(sender) + " can't be null.");
-            }
-
             if (ReferenceEquals(info, null))
             {
                 throw new ArgumentNullException(nameof(info) + " can't be null.");
             }
 
-            foreach (var observer in _listObservers)
+            Notify(info);
+        }
+
+        public void SimulateNewWeatherData(int temperature, int humidity, int pressure)
+        {
+            Notify(new WeatherInfo(temperature, humidity, pressure));
+        }
+
+        public void SimulateNewWeatherData(WeatherInfo info)
+        {
+            if (info == null)
             {
-                observer.Update(sender, info);
+                throw new ArgumentNullException(nameof(info) + " reference to object can't be null.");
             }
+
+            Notify(info);
         }
 
         public void Register(IObserver<WeatherInfo> observer)
@@ -51,6 +58,19 @@ namespace ObserverPatternDemo.Implemantation.Observable
             }
 
             _listObservers.Remove(observer);
+        }
+
+        protected virtual void Notify(WeatherInfo info)
+        {
+            if (ReferenceEquals(info, null))
+            {
+                throw new ArgumentNullException(nameof(info) + " can't be null.");
+            }
+
+            foreach (var observer in _listObservers)
+            {
+                observer.Update(this, info);
+            }
         }
     }
 }

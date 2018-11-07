@@ -9,8 +9,8 @@
         /// <summary>
         /// Handles an event.
         /// </summary>
-        ///<param name="sender">The object that is to raised notifications.</param>
-        ///<param name="info">The current notification information.</param>
-        void Update(IObservable<T> sender, T info);
+        /// <param name="sender">The object that is to raised notifications.</param>
+        /// <param name="info">The current notification information.</param>
+        void Update(IObservable<T> sender, object info);
     }
 }
