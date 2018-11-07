@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverPatternDemo", "Obse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStation", "WeatherStation\WeatherStation.csproj", "{E6C14456-A447-48BC-908E-D4A1022D6AF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverEvents", "..\ObserverEvents\ObserverEvents.csproj", "{836D819F-1F78-48F3-A4D3-005E1CEB4917}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E6C14456-A447-48BC-908E-D4A1022D6AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6C14456-A447-48BC-908E-D4A1022D6AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6C14456-A447-48BC-908E-D4A1022D6AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{836D819F-1F78-48F3-A4D3-005E1CEB4917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{836D819F-1F78-48F3-A4D3-005E1CEB4917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{836D819F-1F78-48F3-A4D3-005E1CEB4917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{836D819F-1F78-48F3-A4D3-005E1CEB4917}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

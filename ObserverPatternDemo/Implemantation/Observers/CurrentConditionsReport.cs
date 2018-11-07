@@ -25,21 +25,24 @@ namespace ObserverPatternDemo.Implemantation.Observers
             _observable.Register(this);
         }
 
-        public void Update(IObservable<WeatherInfo> sender, object objInfo)
+        public void Update(object sender, WeatherInfo info)
         {
-            if (objInfo is WeatherInfo info)
+            if (ReferenceEquals(info, null))
             {
-                _currentTemperature = info.Temperature;
-                _currentHumidity = info.Humidity;
-                _currentPressure = info.Pressure;
-
-                ReportInfo();
+                throw new ArgumentNullException(nameof(info) + " reference can't be null.");
             }
+
+            _currentTemperature = info.Temperature;
+            _currentHumidity = info.Humidity;
+            _currentPressure = info.Pressure;
+
+            ReportInfo();
         }
 
         public void ReportInfo()
         {
-            Console.WriteLine($"Weather info: pressure: {_currentPressure}, humidity: {_currentHumidity}, temperature: {_currentTemperature}.");
+            Console.WriteLine(
+                $"Weather info: pressure: {_currentPressure}, humidity: {_currentHumidity}, temperature: {_currentTemperature}.");
         }
 
         public void Register(IObservable<WeatherInfo> observable)

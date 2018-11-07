@@ -26,22 +26,20 @@ namespace ObserverPatternDemo.Implemantation.Observers
             _observable.Register(this);
         }
 
-        public void Update(IObservable<WeatherInfo> sender, object objInfo)
+        public void Update(object sender, WeatherInfo info)
         {
-            if (objInfo is WeatherInfo info)
-            {
-                _counter++;
-                _averageTemperature = (_averageTemperature + info.Temperature) / _counter;
-                _averageHumidity = (_averageHumidity + info.Humidity) / _counter;
-                _averagePressure = (_averagePressure + info.Pressure) / _counter;
+            _counter++;
+            _averageTemperature = (_averageTemperature + info.Temperature) / _counter;
+            _averageHumidity = (_averageHumidity + info.Humidity) / _counter;
+            _averagePressure = (_averagePressure + info.Pressure) / _counter;
 
-                ReportInfo();
-            }
+            ReportInfo();
         }
 
         public void ReportInfo()
         {
-            Console.WriteLine($"Average statistic: temperature: {_averageTemperature}, humidity: {_averageHumidity}, pressure: {_averagePressure}.");
+            Console.WriteLine(
+                $"Average statistic: temperature: {_averageTemperature}, humidity: {_averageHumidity}, pressure: {_averagePressure}.");
         }
 
         public void Register(IObservable<WeatherInfo> observable)
