@@ -22,7 +22,7 @@
         /// Notifies the observer that the provider has raised event.
         /// </summary>
         ///<param name="sender">The object that is to raised notifications.</param>
-        /// <param name="info">The current notification information.</param>
+        ///<param name="info">The current notification information.</param>
         void Notify(T info);
     }
 }
